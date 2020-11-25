@@ -58,13 +58,10 @@ def main():
 
 
  ##second derivative
-    sign = 1
     sum = 0
-    pattern = [1, 1, 11 / 12, 5 / 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for i in range(2, n - index):
-        term = y[index][i] * pattern[i - 2]
-        sum = sum + sign * term
-        sign = -sign
+    pattern = [1,-1, 11 / 12, -5 / 6]
+    for i in range(2, 6):
+        sum = sum + (y[index][i] * pattern[i - 2])
     second_derivative = round((sum / (h * h)), 4)
     print("Reqd value is", second_derivative)
 
