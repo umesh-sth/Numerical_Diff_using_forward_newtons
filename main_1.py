@@ -47,14 +47,27 @@ def main():
         for j in range(n - i):
             print(round(y[i][j], 4), end="\t")
         print("")
+##calculating first derivative
     for i in range(1,n-index):
-         term = pow(y[index][i], i) / i
+         term = y[index][i] / i
          sum = sum + sign*term
          sign = -sign
 
     first_derivative = round((sum/h),4)
+    print("Reqd value is", first_derivative)
 
-    print("Reqd value is",first_derivative)
+
+ ##second derivative
+    sign = 1
+    sum = 0
+    pattern = [1, 1, 11 / 12, 5 / 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for i in range(2, n - index):
+        term = y[index][i] * pattern[i - 2]
+        sum = sum + sign * term
+        sign = -sign
+    second_derivative = round((sum / (h * h)), 4)
+    print("Reqd value is", second_derivative)
+
 
     again = input("Do you want to try-again for another data sets?")
     if again.lower()=="y" or again.lower() == 'yes':
