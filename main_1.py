@@ -3,6 +3,7 @@ def main():
     flag = 0
     sign = 1
     sum = 0
+    num=0
     n = int(input("Enter the number of data sets you want to enter:"))
 
     #getting x values
@@ -54,16 +55,17 @@ def main():
          sign = -sign
 
     first_derivative = round((sum/h),4)
-    print("Reqd value is", first_derivative)
+    print(f'Reqd value of first derivative at point {num}  is {first_derivative}')
 
 
  ##second derivative
     sum = 0
     pattern = [1,-1, 11 / 12, -5 / 6]
-    for i in range(2, 6):
-        sum = sum + (y[index][i] * pattern[i - 2])
+    for i in range(1, n-index-1):
+        sum = sum + (y[index][i+1] * pattern[i - 1])
     second_derivative = round((sum / (h * h)), 4)
-    print("Reqd value is", second_derivative)
+    print(f'Reqd value of second derivative at point {num} is {second_derivative}')
+
 
 
     again = input("Do you want to try-again for another data sets?")
